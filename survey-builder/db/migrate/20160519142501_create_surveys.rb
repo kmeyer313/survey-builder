@@ -7,6 +7,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.integer     :submissions_allowed
       t.boolean     :anonymous_submission
       t.boolean     :faculty_access
+
       t.datetime    :created_at, null: false
       t.datetime    :updated_at, null: false
       t.datetime    :published_at
