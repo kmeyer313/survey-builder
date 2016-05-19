@@ -6,4 +6,8 @@ class Course < ActiveRecord::Base
   has_many :survey_questions, through: :surveys
   has_many :questions, through: :survey_questions
   has_many :responses, through: :questions
+
+  belongs_to :user
+
+  validates :course_title, presence: true
 end

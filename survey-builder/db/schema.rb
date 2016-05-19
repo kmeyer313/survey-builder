@@ -27,16 +27,19 @@ ActiveRecord::Schema.define(version: 20160519204145) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text     "question_text", null: false
-    t.boolean  "required",      null: false
-    t.string   "question_type", null: false
-    t.integer  "position"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.text     "question_text",      null: false
+    t.boolean  "required",           null: false
+    t.string   "question_type",      null: false
+    t.text     "possible_responses"
+    t.integer  "order"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "responses", force: :cascade do |t|
+    t.integer  "survey_id",     null: false
     t.integer  "question_id",   null: false
+    t.integer  "user_id",       null: false
     t.text     "response_text"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
