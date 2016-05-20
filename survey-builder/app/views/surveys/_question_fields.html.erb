@@ -1,12 +1,12 @@
 <p>
   <%= f.label :question_text, 'Question' %>
-  <%= f.text_area :question_text, required: true%>
+  <%= f.text_area :question_text %>
   <%= f.check_box :_destroy %>
   <%= f.label :_destroy, 'Remove Question' %><br>
   <%= f.label :required, 'Required?' %>
-  <%= f.check_box :required, required: true %><br>
+  <%= f.check_box :required %><br>
   <%= f.label :question_type, 'Question Type' %>
-  <%= f.select :question_type, ['multiple choice', 'short answer', 'rank'], required: true %><br>
+  <%= f.select :question_type, ['multiple choice', 'short answer', 'rank'] %><br>
   <%= f.label :order, 'Question Order' %>
   <%= f.text_field :order %><br>
 </p>

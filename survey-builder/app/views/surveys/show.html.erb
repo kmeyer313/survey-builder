@@ -9,10 +9,7 @@
       <p><%= question.order %>. <%= question.question_text %></p>
         <!-- add red asterick if question is required -->
         <% if question.question_type == "multiple choice" %>
-          <%= f.fields_for :responses do |r| %>
-          <!-- unable to get response text to show -->
-            <%= r.select :response_text %>
-          <% end %>
+          <!-- FIXME render multiple choice partial, when get to work -->
         <% end %>
     <% end %>
     <p><%= f.submit 'Complete' %></p>
