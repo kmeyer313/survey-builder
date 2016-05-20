@@ -1,0 +1,6 @@
+          <%= f.fields_for :questions do |ff| %>
+            <p><%= .order %>. <%= ff.question_text %></p>
+            <%= ff.fields_for :responses do |fff| %>
+              <%= fff.radio_button :response_text %>
+            <% end %>
+          <% end %>

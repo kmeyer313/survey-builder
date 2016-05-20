@@ -1,6 +1,22 @@
-<p id="notice"><%= notice %></p>
+<% if @survey %>
+  <h1>Survey Preview</h1>
 
-<%= render 'form' %>
+  <h2><%= @survey.survey_title %></h2>
+  <p><%= @survey.survey_description %></p>
+
+  <%= form_for(@survey) do |f| %>
+    <% @survey.questions.each do |question| %>
+      <p><%= question.order %>. <%= question.question_text %></p>
+        <!-- add red asterick if question is required -->
+        <% if question.question_type == "multiple choice" %>
+          <!-- FIXME render multiple choice partial, when get to work -->
+
+
+
+        <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<%= link_to 'All Surveys', surveys_path %>

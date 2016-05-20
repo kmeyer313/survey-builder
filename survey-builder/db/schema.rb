@@ -14,18 +14,18 @@
 ActiveRecord::Schema.define(version: 20160519204145) do
 
   create_table "courses", force: :cascade do |t|
-    t.string   "course_title", null: false
-    t.integer  "user_id",      null: false
+    t.string   "course_title"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text     "question_text", null: false
-    t.boolean  "required",      null: false
-    t.string   "question_type", null: false
+    t.text     "question_text"
+    t.boolean  "required"
+    t.string   "question_type"
     t.integer  "order"
-    t.integer  "survey_id",     null: false
+    t.integer  "survey_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -39,23 +39,23 @@ ActiveRecord::Schema.define(version: 20160519204145) do
   end
 
   create_table "surveys", force: :cascade do |t|
-    t.string   "survey_title",         null: false
+    t.string   "survey_title"
     t.text     "survey_description"
     t.boolean  "submissions_allowed"
     t.boolean  "anonymous_submission"
     t.boolean  "faculty_access"
     t.integer  "question_count"
-    t.integer  "course_id",            null: false
+    t.integer  "course_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.datetime "published_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "account_type",    null: false
-    t.string   "name",            null: false
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
+    t.string   "account_type"
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
