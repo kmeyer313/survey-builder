@@ -6,10 +6,8 @@ class SurveysController < ApplicationController
     @surveys = Survey.all
   end
 
-
   def show
   end
-
 
   def new
     @survey = Survey.new
@@ -19,24 +17,22 @@ class SurveysController < ApplicationController
     end
   end
 
-
   def edit
   end
-
 
   def create
     @survey = Survey.new(survey_params)
     respond_to do |format|
       if @survey.save
         format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
-        format.json { render :show, status: :created, location: @survey }
+        # format.json { render :show, status: :created, location: @survey }
+        # format.json { render json: }
       else
         format.html { render :new }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
       end
     end
   end
-
 
   def update
     respond_to do |format|
@@ -50,7 +46,6 @@ class SurveysController < ApplicationController
     end
   end
 
-
   def destroy
     @survey.destroy
     respond_to do |format|
@@ -58,7 +53,6 @@ class SurveysController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
   private
     def set_survey
