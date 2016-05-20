@@ -4,7 +4,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.string      :survey_title, null: false
       t.text        :survey_description
       t.integer     :question_count
-      t.integer     :submissions_allowed
+      t.boolean     :submissions_allowed
       t.boolean     :anonymous_submission
       t.boolean     :faculty_access
 
