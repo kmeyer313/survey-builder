@@ -1,0 +1,9 @@
+<p>
+  <%= f.label :question_text, 'Question' %>
+  <%= f.text_area :question_text, required: true%>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Question" %>
+</p>
+<%= f.fields_for :responses do |builder| %>
+  <%= render 'response_fields', f: builder %>
+<% end %>

@@ -12,6 +12,26 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <h3>Settings</h3>
+    <p>
+      <%= f.label :survey_title, 'Title' %>
+      <!-- CSS size of text_field and text_area -->
+      <%= f.text_field :survey_title, size: 50, required: true %><br>
+      <%= f.label :survey_description, 'Description' %>
+      <%= f.text_area :survey_description %><br>
+      <%= f.label :submissions_allowed, 'Allow Multiple Attempts' %>
+      <%= f.check_box :submissions_allowed %><br>
+      <%= f.label :anonymous_submission, 'Keep Student Identity Anonymous to Other Students'%>
+      <%= f.check_box :anonymous_submission %><br>
+      <%= f.label :faculty_access, 'Allow Faculty Access to Unique Information' %>
+      <%= f.check_box :faculty_access %><br>
+    </p>
+    <h3>Questions</h3>
+    <p>
+      <%= f.fields_for :questions do |builder| %>
+        <%= render 'question_fields', f: builder %>
+      <% end %>
+    </p>
+    <p><%= f.submit 'Save & Publish' %></p>
   </div>
 <% end %>
