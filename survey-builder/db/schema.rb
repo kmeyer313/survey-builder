@@ -13,62 +13,42 @@
 
 ActiveRecord::Schema.define(version: 20160519204145) do
 
-  create_table "course_surveys", force: :cascade do |t|
-    t.integer  "course_id",  null: false
-    t.integer  "survey_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "courses", force: :cascade do |t|
     t.string   "course_title", null: false
+    t.integer  "user_id",      null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text     "question_text",      null: false
-    t.boolean  "required",           null: false
-    t.string   "question_type",      null: false
-    t.text     "possible_responses"
+    t.text     "question_text", null: false
+    t.boolean  "required",      null: false
+    t.string   "question_type", null: false
     t.integer  "order"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  create_table "responses", force: :cascade do |t|
     t.integer  "survey_id",     null: false
-    t.integer  "question_id",   null: false
-    t.integer  "user_id",       null: false
-    t.text     "response_text"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  create_table "survey_questions", force: :cascade do |t|
-    t.integer  "survey_id",   null: false
-    t.integer  "question_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "responses", force: :cascade do |t|
+    t.text     "response_text"
+    t.integer  "question_id"
+    t.integer  "student_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "surveys", force: :cascade do |t|
     t.string   "survey_title",         null: false
     t.text     "survey_description"
-    t.integer  "question_count"
-    t.integer  "submissions_allowed"
+    t.boolean  "submissions_allowed"
     t.boolean  "anonymous_submission"
     t.boolean  "faculty_access"
+    t.integer  "question_count"
+    t.integer  "course_id",            null: false
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.datetime "published_at"
-  end
-
-  create_table "user_courses", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "course_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
