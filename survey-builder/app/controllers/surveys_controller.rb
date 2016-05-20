@@ -7,6 +7,7 @@ class SurveysController < ApplicationController
   end
 
   def show
+    render json: @survey.survey_to_hash
   end
 
   def new
@@ -25,8 +26,7 @@ class SurveysController < ApplicationController
     respond_to do |format|
       if @survey.save
         format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
-        # format.json { render :show, status: :created, location: @survey }
-        # format.json { render json: }
+        format.json { render :show, status: :created, location: @survey }
       else
         format.html { render :new }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
