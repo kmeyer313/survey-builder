@@ -15,8 +15,7 @@
     <h3>Settings</h3>
     <p>
       <%= f.label :survey_title, 'Title' %>
-      <!-- CSS size of text_field and text_area -->
-      <%= f.text_field :survey_title, size: 50, required: true %><br>
+      <%= f.text_field :survey_title, required: true %><br>
       <%= f.label :survey_description, 'Description' %>
       <%= f.text_area :survey_description %><br>
       <%= f.label :submissions_allowed, 'Allow Multiple Attempts' %>
@@ -31,6 +30,7 @@
       <%= f.fields_for :questions do |builder| %>
         <%= render 'question_fields', f: builder %>
       <% end %>
+      <!-- add question link here -->
     </p>
     <p><%= f.submit 'Save & Publish' %></p>
   </div>
