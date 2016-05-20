@@ -1,5 +1,5 @@
 <% if @survey %>
-<h1>Survey Preview</h1>
+  <h1>Survey Preview</h1>
 
   <h2><%= @survey.survey_title %></h2>
   <p><%= @survey.survey_description %></p>
@@ -12,7 +12,8 @@
           <!-- FIXME render multiple choice partial, when get to work -->
         <% end %>
     <% end %>
-    <p><%= f.submit 'Complete' %></p>
   <% end %>
-
 <% end %>
+
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'All Surveys', surveys_path %>
